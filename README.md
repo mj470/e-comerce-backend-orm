@@ -28,3 +28,6 @@ enter: source db/schema.sql
 enter: exit
 run: npm run seed
 run: node server.js
+
+# Walkthrough video:
+https://drive.google.com/file/d/1anVc8KojvJdRetUeWhu9k-Oot1vBNsUu/view
