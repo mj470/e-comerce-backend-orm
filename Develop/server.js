@@ -1,3 +1,4 @@
+const dotenv = require('dotenv').config();
 const express = require('express');
 const routes = require('./routes');
 // import sequelize connection
@@ -10,6 +11,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
+
+app.use((err, req, res, next) => {
+  console.error(err.stack); 
+  res.status(500).send('Something broke!');
+});
 
 // sync sequelize models to the database, then turn on the server
 sequelize.sync({ force: false }).then(() => {
